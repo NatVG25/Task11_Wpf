@@ -1,0 +1,42 @@
+﻿<Window x:Class="Task11git.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task11git"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="400">
+    <Window.Resources>
+        <EllipseGeometry x:Key="ellipse1"
+                         Center="190 190"
+                         RadiusX="150"
+                         RadiusY="150"/>
+        <EllipseGeometry x:Key="ellipse2"
+                         Center="190 190"
+                         RadiusX="120"
+                         RadiusY="120"/>
+
+    </Window.Resources>
+
+    <UniformGrid Rows="1">
+        <Path Fill="red" Stroke="Black">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Union">
+                    <CombinedGeometry.Geometry1>
+                        <CombinedGeometry GeometryCombineMode="Exclude"
+                                  Geometry1="{StaticResource ellipse1}"
+                                  Geometry2="{StaticResource ellipse2}"/>
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <RectangleGeometry Rect=" 60,250,245,30">
+                            <RectangleGeometry.Transform>
+                                <RotateTransform Angle="-45" CenterX="100" CenterY="218"/>
+                            </RectangleGeometry.Transform>
+                        </RectangleGeometry>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+        </Path>
+    </UniformGrid>
+</Window>
+
